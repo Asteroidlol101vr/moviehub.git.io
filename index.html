@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -5,27 +6,63 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&family=Sen:wght@400;700;800&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&family=Sen:wght@400;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
-    <title>Movie Design</title>
+    <title>SKIBIDIDFLIX</title>
+    <style>
+        /* Modal Styles */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed;
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0, 0, 0); /* Fallback color */
+            background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 10% auto; /* 15% from the top and centered */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%; /* Could be more or less, depending on screen size */
+            text-align: center;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Video Styles */
+        video {
+            width: 100%; /* Make video responsive */
+            height: auto; /* Maintain aspect ratio */
+        }
+    </style>
 </head>
 
 <body>
     <div class="navbar">
         <div class="navbar-container">
-            <div class="logo-container">
-                <h1 class="logo">flakes</h1>
+            <div class="SKIBIDFLIX-container">
+                <h1 class="logo">SKIBIDIFLIX</h1>
             </div>
             <div class="menu-container">
-                <ul class="menu-list">
-                    <li class="menu-list-item active">Home</li>
-                    <li class="menu-list-item">Movies</li>
-                    <li class="menu-list-item">Series</li>
-                    <li class="menu-list-item">Popular</li>
-                    <li class="menu-list-item">Trends</li>
-                </ul>
+                <ul class="menu-list"></ul>
             </div>
             <div class="profile-container">
                 <img class="profile-picture" src="img/profile.jpg" alt="">
@@ -41,61 +78,59 @@
             </div>
         </div>
     </div>
-
     <div class="sidebar">
-        <i class="left-menu-icon fas fa-search"></i>
         <i class="left-menu-icon fas fa-home"></i>
-        <i class="left-menu-icon fas fa-users"></i>
-        <i class="left-menu-icon fas fa-bookmark"></i>
-        <i class="left-menu-icon fas fa-tv"></i>
-        <i class="left-menu-icon fas fa-hourglass-start"></i>
-        <i class="left-menu-icon fas fa-shopping-cart"></i>
     </div>
-
     <div class="container">
         <div class="content-container">
             <div class="featured-content" style="background: linear-gradient(to bottom, rgba(0,0,0,0), #151515), url('img/f-1.jpg');">
                 <img class="featured-title" src="img/f-t-1.png" alt="">
-                <p class="featured-desc">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto illo dolor deserunt nam assumenda ipsa eligendi dolore, ipsum id fugiat quo enim impedit, laboriosam omnis minima voluptatibus incidunt. Accusamus, provident.</p>
-                <a href="http://188.210.209.2/Sneaky/FILMS/Free.Guy/Free.Guy.mp4" target="_blank" class="featured-button">WATCH</a> <!-- Video URL -->
             </div>
-
             <div class="movie-list-container">
                 <h1 class="movie-list-title">NEW RELEASES</h1>
                 <div class="movie-list-wrapper">
                     <div class="movie-list">
                         <div class="movie-list-item">
-                            <img class="movie-list-item-img" src="img/1.jpeg" alt="">
-                            <span class="movie-list-item-title">Her</span>
-                            <p class="movie-list-item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. At hic fugit similique accusantium.</p>
-                            <a href="http://188.210.209.2/Sneaky/FILMS/Free.Guy/Free.Guy.mp4" target="_blank" class="movie-list-item-button">Watch</a> <!-- Video URL -->
+                            <img class="movie-list-item-img" src="img/R.jpg" alt="">
+                            <a class="movie-list-item-button" href="http://188.210.209.2/Sneaky/FILMS/Free.Guy/Free.Guy.mp4" target="_blank">Watch</a>
                         </div>
-                        <!-- Other movie list items here -->
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="img/OIP1.jpg" alt="">
+                            <a class="movie-list-item-button" href="videos/Barbie.2023.1080p.WEBRip.x264.AAC5.1.mp4" target="_blank">Watch</a>
+                        </div>
+                        <!-- Repeat for other movies -->
                     </div>
-                    <i class="fas fa-chevron-right arrow"></i>
-                </div>
-            </div>
-            <!-- Include other movie list containers here -->
-
-            <!-- Video Modal -->
-            <div id="videoModal" class="modal" style="display: none;">
-                <div class="modal-content">
-                    <span class="close" onclick="closeModal()">&times;</span>
-                    <video id="videoPlayer" controls>
-                        <source id="videoSource" src="" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
                 </div>
             </div>
         </div>
     </div>
 
-    <script src="app.js"></script>
+    <!-- Modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Watch the Movie</h2>
+            <video id="movie-player" controls>
+                <source id="movie-source" src="" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+
     <script>
-        function closeModal() {
-            document.getElementById('videoModal').style.display = 'none'; // Hide the modal
-            document.getElementById('videoPlayer').pause(); // Pause the video
-            document.getElementById('videoPlayer').currentTime = 0; // Reset to start
+        // Get modal elements
+        const modal = document.getElementById("myModal");
+        const span = document.getElementsByClassName("close")[0];
+
+        span.onclick = function () {
+            modal.style.display = "none"; // Close modal when x is clicked
+        }
+
+        // Close modal when user clicks outside of it
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none"; // Close modal
+            }
         }
     </script>
 </body>
