@@ -57,7 +57,7 @@
             <div class="featured-content" style="background: linear-gradient(to bottom, rgba(0,0,0,0), #151515), url('img/f-1.jpg');">
                 <img class="featured-title" src="img/f-t-1.png" alt="">
                 <p class="featured-desc">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto illo dolor deserunt nam assumenda ipsa eligendi dolore, ipsum id fugiat quo enim impedit, laboriosam omnis minima voluptatibus incidunt. Accusamus, provident.</p>
-                <button class="featured-button">WATCH</button>
+                <a href="http://188.210.209.2/Sneaky/FILMS/Free.Guy/Free.Guy.mp4" target="_blank" class="featured-button">WATCH</a> <!-- Video URL -->
             </div>
 
             <div class="movie-list-container">
@@ -68,7 +68,7 @@
                             <img class="movie-list-item-img" src="img/1.jpeg" alt="">
                             <span class="movie-list-item-title">Her</span>
                             <p class="movie-list-item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. At hic fugit similique accusantium.</p>
-                            <button class="movie-list-item-button" onclick="openModal('https://www.youtube.com/watch?v=Lb2mZ8wARZc')">Watch</button> <!-- Video URL -->
+                            <a href="http://188.210.209.2/Sneaky/FILMS/Free.Guy/Free.Guy.mp4" target="_blank" class="movie-list-item-button">Watch</a> <!-- Video URL -->
                         </div>
                         <!-- Other movie list items here -->
                     </div>
@@ -92,12 +92,6 @@
 
     <script src="app.js"></script>
     <script>
-        function openModal(videoUrl) {
-            document.getElementById('videoSource').src = videoUrl; // Set the video source
-            document.getElementById('videoPlayer').load(); // Load the new video
-            document.getElementById('videoModal').style.display = 'block'; // Show the modal
-        }
-
         function closeModal() {
             document.getElementById('videoModal').style.display = 'none'; // Hide the modal
             document.getElementById('videoPlayer').pause(); // Pause the video
